@@ -24,5 +24,7 @@ mongoose
 // Routing
 app.get("/", (req, res) => res.send("hello!"));
 
+app.use("/api/articles", articles);
+
 // Start Server
 app.listen(PORT, () => console.log(`🧟‍ ITS ALIIIVE ON PORT ${PORT} 🧟‍`));
