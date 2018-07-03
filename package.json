@@ -4,14 +4,16 @@
   "description": "MERN stack NYT Article Search",
   "main": "server.js",
   "dependencies": {
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "mongoose": "^5.1.7",
+    "path": "^0.12.7",
     "validator": "^10.4.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,7 @@
   "bugs": {
     "url": "https://github.com/wabernathy96/nytreact/issues"
   },
-  "homepage": "https://github.com/wabernathy96/nytreact#readme"
+  "engines": {
+    "node": "9.4.0"
+  }
 }
