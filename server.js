@@ -14,6 +14,7 @@ const db = require("./config/keys").mongoURI;
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "build")));
 
 // Connect to MongoDB
 mongoose
@@ -26,8 +27,8 @@ app.get("/", (req, res) => res.send("hello!"));
 
 app.use("/api/articles", articles);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 // Start Server
