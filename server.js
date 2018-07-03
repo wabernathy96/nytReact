@@ -6,7 +6,7 @@ const articles = require("./routes/api/articles");
 
 // Server config
 const app = express();
-const PORT = process.env.PORT || 9001;
+const PORT = process.env.PORT || 3000;
 
 // DB config
 const db = require("./config/keys").mongoURI;
@@ -25,6 +25,10 @@ mongoose
 app.get("/", (req, res) => res.send("hello!"));
 
 app.use("/api/articles", articles);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // Start Server
 app.listen(PORT, () => console.log(`🧟‍ ITS ALIIIVE ON PORT ${PORT} 🧟‍`));
